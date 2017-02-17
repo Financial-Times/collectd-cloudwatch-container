@@ -3,6 +3,7 @@ MAINTAINER 'Jussi Heinonen<jussi.heinonen@ft.com>'
 
 ADD etc/collectd.d /etc/collectd.d/
 ADD opt/collectd-plugins /opt/collectd-plugins/
+ADD run.sh /
 
 # Install dependencies
 RUN apk add -U linux-headers bash bash-doc bash-completion curl \
@@ -26,4 +27,4 @@ RUN curl https://collectd.org/files/collectd-5.7.1.tar.bz2 | tar xjf - &&\
 # Clean
 #RUN rm -rf /var/cache/apk/*
 
-CMD /usr/sbin/collectd
+CMD /usr/sbin/collectd -f
