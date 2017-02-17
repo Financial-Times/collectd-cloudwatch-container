@@ -21,6 +21,26 @@ Example command
 `docker run --env "NAMESPACE=com.ft.universalpublising.test.semantic" -v /proc:/host/proc -t coco/collectd-cloudwatch-container:latest`
 
 
+## Building Docker image
+
+Docker image is built by [Docker Hub](https://hub.docker.com/r/coco/collectd-cloudwatch-container/).
+
+To build the _latest_ version simply push to [master branch](https://github.com/Financial-Times/collectd-cloudwatch-container/tree/master).
+
+### Creating release
+
+To release a version create a tag with version number and push it to remote. Docker Hub will build a image with version number same as the tag name.
+
+```
+~/collectd-cloudwatch-container $(master) git tag v1.0.0
+~/collectd-cloudwatch-container $(master) git tag -l
+v1.0.0
+~/collectd-cloudwatch-container $(master) git push origin v1.0.0
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:Financial-Times/collectd-cloudwatch-container.git
+ * [new tag]         v1.0.0 -> v1.0.0
+
+```
 
 
 
