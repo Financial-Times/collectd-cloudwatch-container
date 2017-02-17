@@ -77,3 +77,12 @@ collectd 5.7.1, http://collectd.org/
 by Florian octo Forster <octo@collectd.org>
 for contributions see `AUTHORS'
 ```
+
+
+## Credits
+
+The implementation has been heavily influenced by [rightscale/collectd-container](https://github.com/rightscale/collectd-container) project. Thank you for sharing the idea with general public.
+
+## Contact info
+
+Curent maintainer: Jussi Heinonen <jussi.heinonen@ft.com>
