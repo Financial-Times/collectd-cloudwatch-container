@@ -2,7 +2,7 @@
 
 Docker image that collects Collectd metrics stored in /proc on host instance.
 
-Currently uses version Collect version 5.7.1.
+Currently uses version Collectd version 5.7.1.
 
 ![Architecture diagram](https://github.com/Financial-Times/collectd-cloudwatch-container/raw/master/monitoring-with-collectd-cloudwatch.png)
 
