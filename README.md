@@ -6,7 +6,7 @@ Currently uses version Collectd version 5.7.1.
 
 ### Table of Contents
 **[Running container](#running-container)**  
-**[Building Docker image](#Building-Docker-image)**  
+**[Building Docker image](#building-docker-image)**  
 **[Creating release](#creating-release)**  
 **[Collectd commands](#collectd-commands)**  
 
