@@ -9,6 +9,8 @@ Currently uses version Collectd version 5.7.1.
 **[Building Docker image](#building-docker-image)**  
 **[Creating release](#creating-release)**  
 **[Collectd commands](#collectd-commands)**  
+**[Credits](#credits)**  
+**[Contact info](#contact-info)**  
 
 ![Architecture diagram](https://github.com/Financial-Times/collectd-cloudwatch-container/raw/master/monitoring-with-collectd-cloudwatch.png)
 
