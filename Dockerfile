@@ -3,7 +3,6 @@ MAINTAINER 'Jussi Heinonen<jussi.heinonen@ft.com>'
 
 ADD etc/collectd.d /etc/collectd.d/
 ADD opt/collectd-plugins /opt/collectd-plugins/
-ADD run.sh /
 
 # Install dependencies
 RUN apk add -U linux-headers bash bash-doc bash-completion curl \
