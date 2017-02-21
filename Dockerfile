@@ -1,4 +1,4 @@
-FROM gliderlabs/alpine:3.4
+FROM alpine:3.5
 MAINTAINER 'Jussi Heinonen<jussi.heinonen@ft.com>'
 
 ADD etc/collectd.d /etc/collectd.d/
@@ -20,7 +20,7 @@ RUN curl https://collectd.org/files/collectd-5.7.1.tar.bz2 | tar xjf - &&\
    grep -rl /proc/ . | xargs sed -i "s/\/proc\//\/host\/proc\//g" &&\
    make all install &&\
    make clean &&\
-   echo 'Include "/etc/collectd.d"' >> /etc/collectd/collectd.conf
+   echo 'Include "/etc/collectd.d"' > /etc/collectd/collectd.conf
 
 
 # Clean
