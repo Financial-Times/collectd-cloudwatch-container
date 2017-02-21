@@ -131,13 +131,13 @@ class Whitelist(object):
         :param metric_key: string describing all parts that make the actual name of a collectd metric
         :return: True if test is positive, False otherwise.
         """
+        #self._LOGGER.info("Matching metric " + metric_key + " against whitelist")
         if metric_key not in self._allowed_metrics:
             if self._whitelist_regex.match(metric_key):
+                self._LOGGER.info("Adding metric " + metric_key + " on whitelist")
                 self._allowed_metrics[metric_key] = True
             else:
+                self._LOGGER.info("Adding metric " + metric_key + " on blacklist")
                 self._allowed_metrics[metric_key] = False
                 self.blocked_metric_log.log_metric(metric_key)
         return self._allowed_metrics[metric_key]
-
-
-
