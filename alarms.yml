@@ -1,0 +1,28 @@
+loadaverage:
+  AlarmDescription: Load Average 4 or above
+  MetricName: load.load
+  Threshold: 4
+  Statistic: Average
+  ComparisonOperator: GreaterThanOrEqualToThreshold
+  PluginInstance: NONE
+memory:
+  AlarmDescription: Memory usage high 28/30GB
+  MetricName: memory.memory.used
+  Threshold: 28000000000
+  Statistic: Average
+  ComparisonOperator: GreaterThanOrEqualToThreshold
+  PluginInstance: NONE
+disk.root:
+  AlarmDescription: Root partition 90% full
+  MetricName: df.percent_bytes.used
+  Threshold: 90
+  Statistic: Average
+  ComparisonOperator: GreaterThanOrEqualToThreshold
+  PluginInstance: root
+disk.vol.neo4j:
+  AlarmDescription: /vol/neo4j partition 90% full
+  MetricName: df.percent_bytes.used
+  Threshold: 90
+  Statistic: Average
+  ComparisonOperator: GreaterThanOrEqualToThreshold
+  PluginInstance: vol-neo4j
