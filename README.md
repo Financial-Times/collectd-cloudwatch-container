@@ -33,7 +33,12 @@ Example command
 
 Docker image is built by [Docker Hub](https://hub.docker.com/r/coco/collectd-cloudwatch-container/).
 
-To build the _latest_ version simply push to [master branch](https://github.com/Financial-Times/collectd-cloudwatch-container/tree/master).
+Building from [master branch](https://github.com/Financial-Times/collectd-cloudwatch-container/tree/master) has been disabled.
+
+To build image from master you must do this locally. Here is example command in local environment.
+```
+~/collectd-cloudwatch-container $(master) sudo docker build -t collectd-cloudwatch-container:local .
+```
 
 ### Creating release
 
