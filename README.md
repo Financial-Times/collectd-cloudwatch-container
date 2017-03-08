@@ -21,12 +21,24 @@ Container must be started with the following parameters.
  * NAMESPACE (tld.domain.programme.environment.team)
    * Namespace is kind of a tag for metrics
    * Namespace should be unique and descriptive, eg. com.ft.universalpublising.test.semantic
+ * INSTANCEID
+   * EC2 instance ID is used to identify the host alert relates to, eg. i-0a4622c20cb792c1f
+ * TOPIC
+   * Optional parameter that enables email alerts to be sent to specific SNS Topic
+   * Format of the topic is _arn:aws:sns:region:accountnumber:TopicName_
+   * Topic can be set per environment by storing topic name under key [/ft/config/sns_topic_arn](https://github.com/Financial-Times/up-neo4j-service-files/blob/3dde1b30c18cab6652d9c726073fe84bc2be0410/collectd-cloudwatch-container.service#L22) in etcd
  * MOUNTPOINT (-v /proc:/host/proc)
    * Mount host instance /proc directory inside the container's /host/proc directory
 
 Example command
 
-`docker run --env "NAMESPACE=com.ft.universalpublising.test.semantic" -v /proc:/host/proc -t coco/collectd-cloudwatch-container:latest`
+```
+docker run \
+--env "NAMESPACE=com.ft.universalpublising.test.semantic" \
+--env "INSTANCEID=$(curl -s --connect-timeout 3 http://169.254.169.254/latest/meta-data/instance-id)" \
+--env "TOPICarn:aws:sns:region:accountnumber:TopicName" \
+-v /proc:/host/proc -t coco/collectd-cloudwatch-container:latest
+```
 
 
 ## Building Docker image
