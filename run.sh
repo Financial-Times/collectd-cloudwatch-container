@@ -3,7 +3,7 @@
 # A wrapper script that creates CloudWatch Alarms and starts collectd daemon
 
 # Attempt to resolve region if AWS_DEFAULT_REGION is unset. Fall back to eu-west-1.
-if [[ -z "${AWS_DEFAULT_REGION}"]]; then
+if [[ -z ${AWS_DEFAULT_REGION} ]]; then
   REGION=$(curl -s --connect-timeout 3 http://169.254.169.254/latest/meta-data/placement/availability-zone/)
   if [[ ! -z ${REGION} ]]; then
     export AWS_DEFAULT_REGION=${REGION:0:-1}
