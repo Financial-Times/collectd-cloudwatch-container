@@ -2,6 +2,8 @@
 #
 # A wrapper script that creates CloudWatch Alarms and starts collectd daemon
 
+declare -a OPTIONAL_ARGS
+
 # Attempt to resolve region if AWS_DEFAULT_REGION is unset. Fall back to eu-west-1.
 if [[ -z ${AWS_DEFAULT_REGION} ]]; then
   REGION=$(curl -s --connect-timeout 3 http://169.254.169.254/latest/meta-data/placement/availability-zone/)
@@ -12,13 +14,19 @@ if [[ -z ${AWS_DEFAULT_REGION} ]]; then
   fi
 fi
 
-# If TOPIC is unset generate invalid SNS Topic name 'environment_variable_topic_unset' that flags warning in alarm settings
-if [[ -z "${TOPIC}" ]]; then
-  TOPIC="arn:aws:sns:${AWS_DEFAULT_REGION}:account:environment_variable_topic_unset"
+# If TOPIC is set append it to OPTIONAL_ARGS array
+if [[ ! -z "${TOPIC}" ]]; then
+  OPTIONAL_ARGS+="--topic ${TOPIC}"
+  OPTIONAL_ARGS+=" " # Append whitespace separator incase more more args are appended
+fi
+# If CONFIG is set append it to OPTIONAL_ARGS array
+if [[ ! -z "${CONFIG}" ]]; then
+  OPTIONAL_ARGS+="--config ${CONFIG}"
+  OPTIONAL_ARGS+=" "
 fi
 
 # Create alarms
-/collective/cloudwatch-alarms/put_metric_alarm.py --namespace ${NAMESPACE} --instanceid ${INSTANCEID} --topic ${TOPIC}
+/collective/cloudwatch-alarms/put_metric_alarm.py --namespace ${NAMESPACE} --instanceid ${INSTANCEID} ${OPTIONAL_ARGS}
 
 # Start colletd daemon
 /usr/sbin/collectd -f
