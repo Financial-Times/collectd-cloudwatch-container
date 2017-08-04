@@ -6,6 +6,9 @@ loadaverage:
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: NONE
+  Dimensions:
+    - Name: InstanceId
+      Value:  get_instanceid()
 memory:
   AlarmDescription: Memory usage higher than 90%. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
   MetricName: memory.memory.used
@@ -14,6 +17,9 @@ memory:
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: NONE
+  Dimensions:
+    - Name: InstanceId
+      Value:  get_instanceid()
 disk.root:
   AlarmDescription: Root partition 90% full. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
   MetricName: df.percent_bytes.used
@@ -21,6 +27,9 @@ disk.root:
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: root
+  Dimensions:
+    - Name: InstanceId
+      Value:  get_instanceid()
 disk.vol.neo4j:
   AlarmDescription: /vol/neo4j partition 90% full. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
   MetricName: df.percent_bytes.used
@@ -28,3 +37,6 @@ disk.vol.neo4j:
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: vol-neo4j
+  Dimensions:
+    - Name: InstanceId
+      Value:  get_instanceid()
