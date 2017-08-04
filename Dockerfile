@@ -3,8 +3,6 @@ MAINTAINER 'Jussi Heinonen<jussi.heinonen@ft.com>'
 
 ADD etc/collectd.d /etc/collectd.d/
 ADD opt/collectd-plugins /opt/collectd-plugins/
-ADD alarms.yml /
-ADD run.sh /
 
 # Install dependencies
 RUN apk add -U linux-headers bash bash-doc bash-completion curl git \
@@ -24,6 +22,8 @@ RUN curl https://collectd.org/files/collectd-5.7.1.tar.bz2 | tar xjf - &&\
    make clean &&\
    echo 'Include "/etc/collectd.d"' > /etc/collectd/collectd.conf
 
+ADD alarms.yml /
+ADD run.sh /
 
 # Clean
 #RUN rm -rf /var/cache/apk/*
