@@ -27,12 +27,12 @@ fi
 
 # Set the LOAD_THRESHOLD dynamically at startup
 LOAD_THRESHOLD=$(grep -c ^processor /proc/cpuinfo)
-sed -i "s/LOAD_THRESHOLD/${LOAD_THRESHOLD}" alarms.yml
+sed -i "s/LOAD_THRESHOLD/${LOAD_THRESHOLD}/g" alarms.yml
 
 # Set the MEMORY_THRESHOLD dynamically at startup
 MAX_MEMORY=$(( $(awk '/MemTotal/{print $2}' /proc/meminfo) * 1024 ))
 MEMORY_THRESHOLD=$(( ${MAX_MEMORY} * 90 / 100 ))
-sed -i "s/MEMORY_THRESHOLD/${MEMORY_THRESHOLD}" alarms.yml
+sed -i "s/MEMORY_THRESHOLD/${MEMORY_THRESHOLD}/g" alarms.yml
 
 # Create alarms
 /collective/cloudwatch-alarms/put_metric_alarm.py --namespace ${NAMESPACE} --instanceid ${INSTANCEID} ${OPTIONAL_ARGS}
