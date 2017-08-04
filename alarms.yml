@@ -10,7 +10,7 @@ memory:
   AlarmDescription: Memory usage higher than 90%. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
   MetricName: memory.memory.used
   # threshold is set dynamically at container startup by run.sh
-  Threshold: MEMORY_THRESHOLD  
+  Threshold: MEMORY_THRESHOLD
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: NONE
