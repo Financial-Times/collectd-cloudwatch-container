@@ -1,14 +1,16 @@
 loadaverage:
-  AlarmDescription: Load Average 8 or above. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
+  AlarmDescription: Load Average equal to number of cores or above. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
   MetricName: load.load
-  Threshold: 8
+  # threshold is set dynamically at container startup by run.sh
+  Threshold: LOAD_THRESHOLD
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: NONE
 memory:
-  AlarmDescription: Memory usage high 55/61GB. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
+  AlarmDescription: Memory usage higher than 90%. Runbook https://dewey.ft.com/upp-neo4j-cluster.html.
   MetricName: memory.memory.used
-  Threshold: 59055800320  
+  # threshold is set dynamically at container startup by run.sh
+  Threshold: MEMORY_THRESHOLD
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   PluginInstance: NONE
