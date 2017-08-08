@@ -35,7 +35,7 @@ MEMORY_THRESHOLD=$(( ${MAX_MEMORY} * 90 / 100 ))
 sed -i "s/MEMORY_THRESHOLD/${MEMORY_THRESHOLD}/g" alarms.yml
 
 # Create alarms
-/collective/cloudwatch-alarms/put_metric_alarm.py --alarmprefix ${NAMESPACE} --namespace ${NAMESPACE} --instanceid ${INSTANCEID} ${OPTIONAL_ARGS}
+/collective/cloudwatch-alarms/put_metric_alarm.py --alarmprefix ${NAMESPACE} --namespace ${NAMESPACE} ${OPTIONAL_ARGS}
 
 # Start colletd daemon
 /usr/sbin/collectd -f
