@@ -9,7 +9,6 @@ loadaverage:
   Dimensions:
     - Name: Host
       Value: get_instanceid()
-      #Value: i-0eb6df3f8e9f05b02
     - Name: PluginInstance
       Value: NONE
 memory:
@@ -23,7 +22,6 @@ memory:
   Dimensions:
     - Name: Host
       Value: get_instanceid()
-      #Value: i-0eb6df3f8e9f05b02
     - Name: PluginInstance
       Value: NONE
 disk.root:
@@ -35,7 +33,6 @@ disk.root:
   Dimensions:
     - Name: Host
       Value: get_instanceid()
-      #Value: i-0eb6df3f8e9f05b02
     - Name: PluginInstance
       Value: root
 disk.vol.neo4j:
@@ -47,6 +44,5 @@ disk.vol.neo4j:
   Dimensions:
     - Name: Host
       Value: get_instanceid()
-      #Value: i-0eb6df3f8e9f05b02
     - Name: PluginInstance
       Value: vol-neo4j
