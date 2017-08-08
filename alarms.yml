@@ -3,7 +3,6 @@ loadaverage:
   MetricName: load.load
   # threshold is set dynamically at container startup by run.sh
   Threshold: LOAD_THRESHOLD
-  #Threshold: 4
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   Dimensions:
@@ -16,7 +15,6 @@ memory:
   MetricName: memory.memory.used
   # threshold is set dynamically at container startup by run.sh
   Threshold: MEMORY_THRESHOLD
-  #Threshold: 57953957068
   Statistic: Average
   ComparisonOperator: GreaterThanOrEqualToThreshold
   Dimensions:
